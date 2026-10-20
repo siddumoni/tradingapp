@@ -1,0 +1,16 @@
+# Secrets and local session data
+.env
+.local/
+*.token
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Runtime output (keep folders with .gitkeep)
+logs/*
+!logs/.gitkeep
+reports/*
+!reports/.gitkeep

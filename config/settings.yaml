@@ -1,0 +1,38 @@
+app:
+  name: nse-advisory-assistant
+  timezone: Asia/Kolkata
+
+account:
+  capital_inr: 20000
+  risk_per_trade_inr: 200
+  minimum_net_risk_reward: 1.5
+  product: MIS
+  advisory_only: true
+
+schedule:
+  market_open: "09:15"
+  no_new_entries_after: "14:45"
+  intended_square_off_by: "15:15"
+  market_close: "15:30"
+
+risk:
+  require_margin_verification: true
+  skip_if_margin_unavailable: true
+
+paths:
+  token_cache: .local/kite_token.json
+  logs_dir: logs
+  reports_dir: reports
+
+# Approximate NSE equity intraday charges. Rates are fractions of turnover.
+# Review against Zerodha's current charges page periodically; actual charges vary
+# with executed orders and exchange/statutory revisions.
+costs:
+  brokerage_rate: "0.0003"          # 0.03% per executed order, capped below
+  brokerage_cap_per_order: "20"     # INR per executed order
+  stt_sell_rate: "0.00025"           # 0.025% on sell side for equity intraday
+  nse_transaction_rate: "0.0000307" # 0.00307% NSE turnover charge (verify current tariff)
+  sebi_rate: "0.000001"              # ₹10 per crore
+  gst_rate: "0.18"                   # 18% on brokerage + exchange + SEBI charges
+  stamp_buy_rate: "0.00003"          # 0.003% on buy side
+  ipft_rate: "0"                     # optional; set only when a verified rate is available

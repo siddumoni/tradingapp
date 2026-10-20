@@ -1,0 +1,1 @@
+"""Advisory-only trading strategies. No order execution exists in this package."""

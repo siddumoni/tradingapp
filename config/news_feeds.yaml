@@ -1,0 +1,5 @@
+# Public RSS headline sources for initial triage. Headlines are not authoritative.
+feeds:
+  - "https://news.google.com/rss/search?q=Indian+stock+market+NSE+NIFTY+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen"
+  - "https://news.google.com/rss/search?q=NSE+corporate+announcement+results+stocks+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen"
+  - "https://news.google.com/rss/search?q=RBI+India+economy+crude+oil+rupee+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen"

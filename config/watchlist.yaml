@@ -1,0 +1,72 @@
+# Starter watchlist only. Phase 3 will reconcile symbols against the current
+# NSE instrument dump; symbols that are unavailable will be reported/skipped.
+# This is a manually maintained starter universe, not a promise that every
+# symbol remains in the NIFTY 50 or F&O segment over time.
+nifty50:
+  - ADANIENT
+  - ADANIPORTS
+  - APOLLOHOSP
+  - ASIANPAINT
+  - AXISBANK
+  - BAJAJ-AUTO
+  - BAJFINANCE
+  - BAJAJFINSV
+  - BEL
+  - BHARTIARTL
+  - CIPLA
+  - COALINDIA
+  - DRREDDY
+  - EICHERMOT
+  - GRASIM
+  - HCLTECH
+  - HDFCBANK
+  - HDFCLIFE
+  - HEROMOTOCO
+  - HINDALCO
+  - HINDUNILVR
+  - ICICIBANK
+  - INDUSINDBK
+  - INFY
+  - ITC
+  - JIOFIN
+  - JSWSTEEL
+  - KOTAKBANK
+  - LT
+  - LTIM
+  - M&M
+  - MARUTI
+  - NESTLEIND
+  - NTPC
+  - ONGC
+  - POWERGRID
+  - RELIANCE
+  - SBILIFE
+  - SBIN
+  - SHRIRAMFIN
+  - SUNPHARMA
+  - TATACONSUM
+  - TATAMOTORS
+  - TATASTEEL
+  - TCS
+  - TECHM
+  - TITAN
+  - TRENT
+  - ULTRACEMCO
+  - WIPRO
+
+additional_liquid_fo:
+  - ABCAPITAL
+  - BANKBARODA
+  - CANBK
+  - FEDERALBNK
+  - IREDA
+  - PNB
+  - RECLTD
+  - SBICARD
+  - SUZLON
+  - ZOMATO
+
+filters:
+  minimum_average_daily_volume: 500000
+  minimum_price_inr: 50
+  maximum_price_inr: 10000
