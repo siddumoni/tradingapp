@@ -1,6 +1,6 @@
 # PROJECT_PROGRESS — Stocks-in-Play ORB candidate + validation gate
 
-Branch: `feature/sip-orb-validation` (off `main` @ 43807c7). Nothing is pushed or committed yet.
+Branch: `feature/sip-orb-validation` (off `main` @ 43807c7). Committed (4223c0a) and pushed to origin; `main` untouched.
 Goal: replace "is the strategy good?" with a measurable answer: a candidate strategy plus a
 validation gate that decides whether it earns a forward paper-trading period. It does NOT
 claim the strategy is profitable. No order-placement code is added anywhere.
@@ -67,3 +67,13 @@ claim the strategy is profitable. No order-placement code is added anywhere.
     (123 original + 55 new), ~35 s.
   * Both CLIs start (`--help`, `paper_log summary` on an empty log). `plan`/`settle` and the real-data
     `orb_validation` path were NOT run here: they need Yahoo, which this workspace cannot reach.
+- **M4 (done):** committed as 4223c0a and pushed to `origin/feature/sip-orb-validation`. PR link:
+  https://github.com/siddumoni/tradingapp/pull/new/feature/sip-orb-validation
+
+## What remains (not done, needs the user's machine or data)
+1. Run `python -m src.orb_validation --days 59` on a machine that can reach Yahoo. Expect
+   INSUFFICIENT_DATA: ~45 usable sessions leaves ~18 holdout sessions, below the 40 required.
+2. Get a longer 5-minute history (Kite Connect historical API; verify current limits) and re-run.
+3. Only if the gate passes on real data: run `paper_log plan/settle` daily for 20+ sessions.
+4. Not built: wiring this strategy into `advisory_engine.py`, Kite live-data adapter, margin
+   verification (the earlier plan from this project is unchanged).
