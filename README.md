@@ -82,3 +82,20 @@ Not included yet: instruments, quotes, historical candles, indicators, strategy 
 ## Default risk configuration
 
 `config/settings.yaml` records the requested starting values: ₹20,000 capital, ₹100 risk per trade, 1:1.5 minimum net R:R, MIS intent, margin verification required, no new entries after 14:45 IST, and intended square-off by 15:15 IST. These are configuration values only; Phase 1 does not create or manage trades.
+
+## Stocks-in-Play ORB candidate and validation gate (research, advisory-only)
+
+A candidate strategy plus a gate that decides whether it earns forward paper trading.
+It never places orders. See `docs/SIP_ORB_RESEARCH.md` for the basis and the limits.
+
+```
+python -m src.orb_validation --synthetic null     # harness self-check: must NOT pass
+python -m src.orb_validation --synthetic edge     # harness self-check: planted edge is detected
+python -m src.orb_validation --days 59            # real data (Yahoo, ~60 days max) -> usually INSUFFICIENT_DATA
+python -m src.paper_log plan                      # after 09:20 IST: record today's conditional plans
+python -m src.paper_log settle                    # after 15:30 IST: settle them
+python -m src.paper_log summary                   # forward-test statistics
+```
+
+Verdicts are `INSUFFICIENT_DATA`, `FAIL` or `PASS_HISTORICAL_GATE`. A pass is permission to
+paper trade, not to trade real money.
